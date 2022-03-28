@@ -22,5 +22,7 @@ jobs:
       working-directory: Q1-2022-ApiGateway/
     - name: Build
       run: dotnet build --no-restore
+      working-directory: Q1-2022-ApiGateway/
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      working-directory: Q1-2022-ApiGateway/
