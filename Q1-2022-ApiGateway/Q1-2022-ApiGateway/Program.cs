@@ -32,9 +32,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        c.SwaggerEndpoint("https://localhost:49372/swagger/index.html", "ApiGateway");
-        c.SwaggerEndpoint("https://localhost:49370/swagger/index.html", "test");
-    });
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiGateway V1");
+    }
+    );
+    //app.UseSwaggerUI(c =>
+    //{
+    //    c.SwaggerEndpoint("https://localhost:49372/swagger/index.html", "ApiGateway");
+    //    c.SwaggerEndpoint("https://localhost:49370/swagger/index.html", "test");
+    //});
 
     app.UseSwaggerForOcelotUI(opt =>
     {

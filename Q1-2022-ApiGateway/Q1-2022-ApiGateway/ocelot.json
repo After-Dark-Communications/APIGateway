@@ -1,15 +1,15 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/values",
+      "DownstreamPathTemplate": "/api/Values",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 49370
+            "Host": "localhost",
+            "Port": 58292
         }
       ],
-      "UpstreamPathTemplate": "/api/values",
+      "UpstreamPathTemplate": "/values",
         "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
         "Swaggerkey":"values"
     }
@@ -21,13 +21,13 @@
         {
             "Name": "test API",
             "Version": "v1",
-            "Url": "https://localhost:49370/swagger/v1/swagger.json"
+            "Url": "https://localhost:58292/swagger/v1/swagger.json"
         }
       ]
     }
   ],
     "GlobalConfiguration": {
-        "BaseUrl": "https://localhost:49372"
+        "BaseUrl": "https://localhost:58294"
     },
   "DangerousAcceptAnyServerCertificateValidator": true
 

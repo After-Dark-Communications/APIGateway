@@ -1,13 +1,16 @@
 {
   "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:22902",
-      "sslPort": 44333
-    }
-  },
+    "iisSettings": {
+        "windowsAuthentication": false,
+        "anonymousAuthentication": true,
+        "iisExpress": {
+            "applicationUrl": "http://localhost:22902",
+            "sslPort": 44333
+        }
+    },
+    {
+        "Urls": "http://localhost:49372"
+    },
   "profiles": {
     "Q1_2022_ApiGateway": {
       "commandName": "Project",
@@ -28,11 +31,12 @@
       }
     },
     "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true,
-      "useSSL": true
+        "commandName": "Docker",
+        "launchBrowser": true,
+        "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+        "httpsPort": 49372,
+        "publishAllPorts": true,
+        "useSSL": true
     }
   }
 }
