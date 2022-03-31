@@ -4,6 +4,8 @@ services:
 
   test:
     image: ${DOCKER_REGISTRY-}test
+    ports:
+        - 49370
     build:
       context: .
       dockerfile: test/Dockerfile
@@ -11,6 +13,8 @@ services:
 
   q1-2022-apigateway:
     image: ${DOCKER_REGISTRY-}q12022apigateway
+    ports: 
+        - 49372
     build:
       context: .
       dockerfile: Q1-2022-ApiGateway/Dockerfile
