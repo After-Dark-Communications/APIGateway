@@ -1,22 +1,22 @@
 version: '3.4'
 
 services:
-
-  test:
-    image: ${DOCKER_REGISTRY-}test
-    ports:
-        - "49370:60514"
-    build:
-      context: .
-      dockerfile: test/Dockerfile
-    
-
   q1-2022-apigateway:
+    container_name: apigateway
     image: ${DOCKER_REGISTRY-}q12022apigateway
-    ports: 
-        - "49372:60514"
+    ports:
+        - "5000:80"
+
     build:
       context: .
       dockerfile: Q1-2022-ApiGateway/Dockerfile
-    depends_on:
-        - test
+    
+  test:
+    container_name: test
+    image: ${DOCKER_REGISTRY-}test
+    ports:
+        - "5001:80"
+
+    build:
+      context: .
+      dockerfile: test/Dockerfile

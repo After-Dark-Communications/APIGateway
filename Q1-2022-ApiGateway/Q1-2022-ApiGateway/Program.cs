@@ -1,28 +1,31 @@
 
 
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Consul;
 using System;
-
-
-
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
+
 IConfiguration configuration = new ConfigurationBuilder()
-                            .AddJsonFile("ocelot.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile("configuration.json", optional: false, reloadOnChange: true)
                             .Build();
 
-
+builder.Host.ConfigureAppConfiguration(app => app.AddJsonFile("configuration.json"));
+builder.Services.AddOcelot(builder.Configuration);
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSwaggerForOcelot(configuration);
-builder.Services.AddOcelot(configuration);
+
+//builder.Services.AddOcelot(configuration).AddConsul().AddConfigStoredInConsul();
+
 
 var app = builder.Build();
 
@@ -40,11 +43,6 @@ if (app.Environment.IsDevelopment())
     //    c.SwaggerEndpoint("https://localhost:49372/swagger/index.html", "ApiGateway");
     //    c.SwaggerEndpoint("https://localhost:49370/swagger/index.html", "test");
     //});
-
-    app.UseSwaggerForOcelotUI(opt =>
-    {
-        opt.PathToSwaggerGenerator = "/swagger/docs";
-    });
 
    
 
