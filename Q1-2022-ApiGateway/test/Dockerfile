@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj", "Q1-2022-ApiGateway/"]
-RUN dotnet restore "Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
+COPY ["test/test.csproj", "test/"]
+RUN dotnet restore "test/test.csproj"
 COPY . .
-WORKDIR "/src/Q1-2022-ApiGateway"
-RUN dotnet build "Q1-2022-ApiGateway.csproj" -c Release -o /app/build
+WORKDIR "/src/test"
+RUN dotnet build "test.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Q1-2022-ApiGateway.csproj" -c Release -o /app/publish
+RUN dotnet publish "test.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Q1-2022-ApiGateway.dll"]
+ENTRYPOINT ["dotnet", "test.dll"]

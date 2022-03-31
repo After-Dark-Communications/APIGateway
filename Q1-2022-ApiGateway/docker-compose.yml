@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+
+  test:
+    image: ${DOCKER_REGISTRY-}test
+    build:
+      context: .
+      dockerfile: test/Dockerfile
+    
+
+  q1-2022-apigateway:
+    image: ${DOCKER_REGISTRY-}q12022apigateway
+    build:
+      context: .
+      dockerfile: Q1-2022-ApiGateway/Dockerfile
+    depends_on:
+        - test

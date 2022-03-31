@@ -1,19 +1,34 @@
 {
-  "Routes": [
+  "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/todos/{id}",
+      "DownstreamPathTemplate": "/api/Values",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "jsonplaceholder.typicode.com",
-          "Port": 443
+          "Host": "localhost",
+          "Port": "60512: 443"
         }
       ],
-      "UpstreamPathTemplate": "/todos/{id}",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamPathTemplate": "/values",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "values",
+      "Config": [
+        {
+          "Name": "test API",
+          "Version": "v1",
+          "Url": "https://localhost:60514/swagger/v1/swagger.json"
+        }
+      ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
-  }
+    "BaseUrl": "https://localhost:60514"
+  },
+  "DangerousAcceptAnyServerCertificateValidator": true
+
+
 }

@@ -1,16 +1,18 @@
 
 
+using Microsoft.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using System;
 
-IConfiguration configuration = new ConfigurationBuilder()
-                            .AddJsonFile("ocelot.json")
-                            .Build();
+
 
 
 var builder = WebApplication.CreateBuilder(args);
+IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+                            .Build();
 
 
 // Add services to the container.
@@ -29,14 +31,25 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseOcelot().Wait();
+    app.UseSwaggerForOcelotUI(opt =>
+    {
+        opt.PathToSwaggerGenerator = "/swagger/docs";
+    });
+
+   
+
 
 }
+app.UseRouting();
+
 
 app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseOcelot().Wait();
 
 app.Run();
