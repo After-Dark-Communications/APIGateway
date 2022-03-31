@@ -11,7 +11,7 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = new ConfigurationBuilder()
-                            .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+                            .AddJsonFile("ocelot.json", optional: true, reloadOnChange: true)
                             .Build();
 
 
@@ -30,7 +30,12 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("https://localhost:49372/swagger/index.html", "ApiGateway");
+        c.SwaggerEndpoint("https://localhost:49370/swagger/index.html", "test");
+    });
+
     app.UseSwaggerForOcelotUI(opt =>
     {
         opt.PathToSwaggerGenerator = "/swagger/docs";
@@ -48,7 +53,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+    }
+);
 
 app.UseOcelot().Wait();
 

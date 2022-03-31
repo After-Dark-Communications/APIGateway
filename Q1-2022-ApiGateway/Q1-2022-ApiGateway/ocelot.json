@@ -1,16 +1,17 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/api/Values",
+      "DownstreamPathTemplate": "/api/values",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": "60512: 443"
+          "Port": 49370
         }
       ],
-      "UpstreamPathTemplate": "/values",
-      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Delete" ]
+      "UpstreamPathTemplate": "/api/values",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+        "Swaggerkey":"values"
     }
   ],
   "SwaggerEndPoints": [
@@ -18,16 +19,16 @@
       "Key": "values",
       "Config": [
         {
-          "Name": "test API",
-          "Version": "v1",
-          "Url": "https://localhost:60514/swagger/v1/swagger.json"
+            "Name": "test API",
+            "Version": "v1",
+            "Url": "https://localhost:49370/swagger/v1/swagger.json"
         }
       ]
     }
   ],
-  "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:60514"
-  },
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:49372"
+    },
   "DangerousAcceptAnyServerCertificateValidator": true
 
 
