@@ -17,9 +17,6 @@ jobs:
       packages: write
 
     steps:
-      - name: cding
-        uses: cd "Q1-2022-ApiGateway"
-
       - name: Checkout repository
         uses: actions/checkout@v2
 
