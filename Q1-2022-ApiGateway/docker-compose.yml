@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  mongodb_container:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+
   q1-2022-apigateway:
     container_name: apigateway
     image: ${DOCKER_REGISTRY-}q12022apigateway
@@ -28,7 +37,7 @@ services:
         - "5002:80"
     environment:
         - PORT=80
-        - DATABASE_URL=mongodb://host.docker.internal:27017/
+        - DATABASE_URL=mongodb://root:rootpassword@mongodb:27017/
 
 
     build:
