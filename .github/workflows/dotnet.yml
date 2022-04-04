@@ -22,4 +22,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore  Q1-2022-ApiGateway/Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal Q1-2022-ApiGateway/Q1-2022-ApiGateway/test/test.csproj
+      run: dotnet test --no-build --verbosity normal Q1-2022-ApiGateway/test/test.csproj
