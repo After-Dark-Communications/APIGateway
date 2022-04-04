@@ -23,10 +23,10 @@ services:
 
   SurveyService:
     container_name: survey_service
-    image: ${DOCKER_REGISTRY-}SurveyService
+    image: ${DOCKER_REGISTRY-}q12022expresssurveyservice
     ports:
         - "5002:80"
 
     build:
       context: .
-      dockerfile: ../Q1-2022-Express-Survey-Service/Dockerfile
+      dockerfile: ../../Q1-2022-Express-Survey-Service/Dockerfile
