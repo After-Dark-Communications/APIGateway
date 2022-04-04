@@ -2,38 +2,22 @@ version: '3.4'
 
 services:
   q1-2022-apigateway:
-    container_name: apigateway
-    image: ${DOCKER_REGISTRY-}q12022apigateway
-    ports:
-        - 5000:80
-        - "80"
-        - "443"
-
-    build:
-      context: .
-      dockerfile: Q1-2022-ApiGateway/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  
   test:
-    container_name: test
-    image: ${DOCKER_REGISTRY-}test
-    ports:
-        - 5001:80
-        - "80"
-        - "443"
-
-    build:
-      context: .
-      dockerfile: test/Dockerfile
-  
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+    ports:
+      - "80"
+      - "443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

@@ -1,23 +1,25 @@
-version: '3.4'
+version: "3.7"
 
 services:
-  q1-2022-apigateway:
+   mongodb_container:
+    container_name: mongodb
+    image: mongo:latest
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
     ports:
-      - "80"
-      - "443"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-  test:
+      - 27017:27017
+  
+   SurveyService:
+    container_name: survey_service
+    image: ${DOCKER_REGISTRY-}q12022expresssurveyservice
+    ports:
+        - 5002:80
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:
-      - "80"
-      - "443"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+        - PORT=80
+        - DATABASE_URL=mongodb://root:rootpassword@mongodb:27017/
+
+
+    build:
+      context: ../../Q1-2022-Express-Survey-Service/
+      dockerfile: Dockerfile
