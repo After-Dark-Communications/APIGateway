@@ -21,8 +21,6 @@ jobs:
       run: dotnet restore
       working-directory: Q1-2022-ApiGateway/
     - name: Build
-      run: dotnet build --no-restore
-      working-directory: Q1-2022-ApiGateway/Q1-2022-ApiGateway
+      run: dotnet build --no-restore  Q1-2022-ApiGateway/Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-      working-directory: Q1-2022-ApiGateway/Q1-2022-ApiGateway/test
+      run: dotnet test --no-build --verbosity normal Q1-2022-ApiGateway/Q1-2022-ApiGateway/test/test.csproj
