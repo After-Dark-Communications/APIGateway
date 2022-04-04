@@ -20,12 +20,16 @@ services:
     build:
       context: .
       dockerfile: test/Dockerfile
-
+  
   SurveyService:
     container_name: survey_service
     image: ${DOCKER_REGISTRY-}q12022expresssurveyservice
     ports:
         - "5002:80"
+    environment:
+        - PORT=80
+        - DATABASE_URL=mongodb://host.docker.internal:27017/
+
 
     build:
       context: ../../Q1-2022-Express-Survey-Service/

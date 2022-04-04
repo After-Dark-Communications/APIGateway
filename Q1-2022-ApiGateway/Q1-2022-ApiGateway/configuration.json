@@ -1,19 +1,33 @@
 {
-    "Routes": [
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
         {
-            "DownstreamPathTemplate": "/api/Values",
-            "DownstreamScheme": "http",
-            "DownstreamHostAndPorts": [
-                {
-                    "Host": "host.docker.internal",
-                    "Port": 5001
-                }
-            ],
-            "UpstreamPathTemplate": "/values",
-            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
-            "Swaggerkey": "values"
+          "Host": "host.docker.internal",
+          "Port": 5001
         }
-    ],
+      ],
+      "UpstreamPathTemplate": "/values",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Swaggerkey": "values"
+    },
+    {
+      "DownstreamPathTemplate": "/api/surveys",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 5002
+        }
+      ],
+      "UpstreamPathTemplate": "/surveys",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Swaggerkey": "surveys"
+    }
+  ],
+
     "SwaggerEndPoints": [
         {
             "Key": "values",
