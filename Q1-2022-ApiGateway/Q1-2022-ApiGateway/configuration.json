@@ -28,18 +28,28 @@
     }
   ],
 
-    "SwaggerEndPoints": [
+  "SwaggerEndPoints": [
+    {
+      "Key": "values",
+      "Config": [
         {
-            "Key": "values",
-            "Config": [
-                {
-                    "Name": "test API",
-                    "Version": "v1",
-                    "Url": "http://localhost:5001"
-                }
-            ]
+          "Name": "test API",
+          "Version": "v1",
+          "Url": "http://localhost:5001/swagger/index.html"
         }
-    ],
+      ]
+    },
+    {
+      "Key": "surveys",
+      "Config": [
+        {
+          "Name": "surveys API",
+          "Version": "v1",
+          "Url": "http://localhost:5002/api/docs"
+        }
+      ]
+    }
+  ],
     "GlobalConfiguration": {
         "BaseUrl": "https://localhost:5000"
     }
