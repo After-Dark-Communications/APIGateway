@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["Q1-2022-ApiGateway.csproj", "Q1-2022-ApiGateway/"]
 RUN dotnet restore "Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
 COPY . .
-WORKDIR "/src/"
+WORKDIR "/src/Q1-2022-ApiGateway"
 RUN dotnet build "Q1-2022-ApiGateway.csproj" -c Release -o /app/build
 
 FROM build AS publish
