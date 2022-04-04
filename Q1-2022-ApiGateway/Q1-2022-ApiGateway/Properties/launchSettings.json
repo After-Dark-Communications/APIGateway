@@ -8,9 +8,6 @@
             "sslPort": 44333
         }
     },
-    {
-        "Urls": "http://localhost:49372"
-    },
   "profiles": {
     "Q1_2022_ApiGateway": {
       "commandName": "Project",
