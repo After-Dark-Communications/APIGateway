@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies # Get used packages
-      run: dotnet restore "/Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
+      run: dotnet restore "./Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
     - name: Build # Build main project
-      run: dotnet build --no-restore  "/Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
+      run: dotnet build --no-restore  "./Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
     - name: Test # Run tests
       run: dotnet test --no-build --verbosity normal ./test/test.csproj
