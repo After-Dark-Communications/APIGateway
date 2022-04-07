@@ -33,9 +33,10 @@
       "Key": "values",
       "Config": [
         {
-          "Name": "test API",
+          "Name": "Test API",
           "Version": "v1",
-          "Url": "http://localhost:5001/swagger/index.html"
+          "Url": "http://host.docker.internal:5001/swagger/v1/swagger.json"
+
         }
       ]
     },
@@ -45,7 +46,7 @@
         {
           "Name": "surveys API",
           "Version": "v1",
-          "Url": "http://localhost:5002/api/docs"
+          "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
         }
       ]
     }
