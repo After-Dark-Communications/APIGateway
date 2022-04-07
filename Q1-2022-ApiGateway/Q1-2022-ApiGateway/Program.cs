@@ -3,6 +3,7 @@
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
+using MMLib.SwaggerForOcelot.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
@@ -11,12 +12,20 @@ using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 IConfiguration configuration = new ConfigurationBuilder()
                             .AddJsonFile("configuration.json", optional: false, reloadOnChange: true)
                             .Build();
 
+
+
 builder.Host.ConfigureAppConfiguration(app => app.AddJsonFile("configuration.json"));
 builder.Services.AddOcelot(builder.Configuration);
+builder.Services.AddSwaggerForOcelot(builder.Configuration, (o) =>
+{
+    o.GenerateDocsForGatewayItSelf = true;
+});
+builder.Services.AddMvc();
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -36,18 +45,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiGateway V1");
+        c.RoutePrefix =string.Empty;
     }
     );
-    //app.UseSwaggerUI(c =>
-    //{
-    //    c.SwaggerEndpoint("https://localhost:49372/swagger/index.html", "ApiGateway");
-    //    c.SwaggerEndpoint("https://localhost:49370/swagger/index.html", "test");
-    //});
+   
 
    
 
 
 }
+
 app.UseRouting();
 
 
@@ -61,7 +68,14 @@ app.UseEndpoints(endpoints =>
         endpoints.MapControllers();
     }
 );
+app.UseSwaggerForOcelotUI((opt =>
+{
+    opt.PathToSwaggerGenerator = "/swagger/docs";
+    
 
+}));
 app.UseOcelot().Wait();
+
+
 
 app.Run();
