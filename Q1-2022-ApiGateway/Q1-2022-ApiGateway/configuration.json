@@ -25,7 +25,7 @@
         "UpstreamPathTemplate": "/surveys",
         "UpstreamHttpMethod": [ "GET" ],
         "Swaggerkey": "surveys"
-    }
+    },
     {
         "DownstreamPathTemplate": "/api/surveys",
         "DownstreamScheme": "http",
