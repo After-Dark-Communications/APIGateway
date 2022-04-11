@@ -12,9 +12,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
                       policy =>
-                      {
-                          policy.WithOrigins("http://localhost");
-                      });
+                       {
+                           policy.WithOrigins("http://localhost")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                       });
 });
 
 var app = builder.Build();
