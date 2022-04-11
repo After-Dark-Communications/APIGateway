@@ -41,7 +41,7 @@
       ]
     },
     {
-      "Key": "surveys",
+      "Key": "surveys"
       "Config": [
         {
           "Name": "surveys API",
