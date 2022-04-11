@@ -23,7 +23,7 @@
             }
         ],
         "UpstreamPathTemplate": "/surveys",
-        "UpstreamHttpMethod": [ "GET" ],
+        "UpstreamHttpMethod": [ "GET", "POST", "PATCH", "DELETE" ],
         "Swaggerkey": "surveys"
     }
   ],
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "Key": "surveys"
+      "Key": "surveys",
       "Config": [
         {
           "Name": "surveys API",
