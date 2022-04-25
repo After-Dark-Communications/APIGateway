@@ -15,12 +15,12 @@
     },
     {
         "DownstreamPathTemplate": "/api/surveys",
-        "DownstreamScheme": "http",
+        "DownstreamScheme": "https",
         "DownstreamHostAndPorts": [
-            {
-                "Host": "host.docker.internal",
-                "Port": 5002
-            }
+          {
+            "Host": "q1-survey-service.herokuapp.com",
+            "Port": 443
+          }
         ],
         "UpstreamPathTemplate": "/surveys",
         "UpstreamHttpMethod": [ "GET", "POST", "PATCH", "DELETE" ],
