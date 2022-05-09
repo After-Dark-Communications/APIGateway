@@ -26,8 +26,8 @@ jobs:
       uses: google-github-actions/deploy-appengine@v0.2.0
       with:
         deliverables: app.yaml
+	image_url: gcr.io/dinner-in-motion-project/gatewayapi
         project_id: ${{ secrets.GCP_PROJECT }}
-	
 
     - name: Test
       run: curl "${{ steps.deploy.outputs.url }}"
