@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+   mongodb_container:
+    container_name: mongodb
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+  
+   SurveyService:
+    container_name: survey_service
+    image: ghcr.io/after-dark-communications/q1-2022-express-survey-service:latest
+    ports:
+        - 5002:80
+    environment:
+        - PORT=80
+        - DATABASE_URL=mongodb://root:rootpassword@mongodb:27017/
+
+
+    build:
+      context: ../Q1-2022-Express-Survey-Service/
+      dockerfile: Dockerfile

@@ -17,12 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-      working-directory: Q1-2022-ApiGateway/
-    - name: Build
-      run: dotnet build --no-restore
-      working-directory: Q1-2022-ApiGateway/
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
-      working-directory: Q1-2022-ApiGateway/
+    - name: Restore dependencies # Get used packages
+      run: dotnet restore "./Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
+    - name: Build # Build main project
+      run: dotnet build --no-restore  "./Q1-2022-ApiGateway/Q1-2022-ApiGateway.csproj"
+    - name: Test # Run tests
+      run: dotnet test --no-build --verbosity normal ./test/test.csproj

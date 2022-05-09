@@ -5,28 +5,23 @@ services:
     container_name: apigateway
     image: ${DOCKER_REGISTRY-}q12022apigateway
     ports:
-        - "5000:80"
+        - 5000:80
+        - "80"
+        - "443"
 
     build:
       context: .
       dockerfile: Q1-2022-ApiGateway/Dockerfile
-    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+  
   test:
     container_name: test
     image: ${DOCKER_REGISTRY-}test
     ports:
-        - "5001:80"
+        - 5001:80
 
     build:
       context: .
       dockerfile: test/Dockerfile
-
-  SurveyService:
-    container_name: survey_service
-    image: ${DOCKER_REGISTRY-}SurveyService
-    ports:
-        - "5002:80"
-
-    build:
-      context: .
-      dockerfile: ../Q1-2022-Express-Survey-Service/Dockerfile

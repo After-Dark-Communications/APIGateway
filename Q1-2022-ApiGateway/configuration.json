@@ -1,0 +1,57 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Values",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/values",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "Swaggerkey": "values"
+    },
+    {
+        "DownstreamPathTemplate": "/api/surveys",
+        "DownstreamScheme": "https",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "q1-survey-service.herokuapp.com",
+            "Port": 443
+          }
+        ],
+        "UpstreamPathTemplate": "/surveys",
+        "UpstreamHttpMethod": [ "GET", "POST", "PATCH", "DELETE" ],
+        "Swaggerkey": "surveys"
+    }
+  ],
+
+  "SwaggerEndPoints": [
+    {
+      "Key": "values",
+      "Config": [
+        {
+          "Name": "Test API",
+          "Version": "v1",
+          "Url": "http://host.docker.internal:5001/swagger/v1/swagger.json"
+
+        }
+      ]
+    },
+    {
+      "Key": "surveys",
+      "Config": [
+        {
+          "Name": "surveys API",
+          "Version": "v1",
+          "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
+        }
+      ]
+    }
+  ],
+    "GlobalConfiguration": {
+        "BaseUrl": "https://localhost:5000"
+    }
+}
