@@ -30,6 +30,7 @@ jobs:
         deliverables: app.yaml
         image_url: gcr.io/dinner-in-motion-project/gatewayapi
         project_id: ${{ secrets.GCP_PROJECT }}
+	credentials: ${{ secrets.GCP_CREDENTIALS }}
 
     - name: Test
       run: curl "${{ steps.deploy.outputs.url }}"
