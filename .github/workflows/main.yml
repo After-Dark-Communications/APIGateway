@@ -15,8 +15,8 @@ jobs:
           credentials_json: ${{ secrets.gcp_credentials }}
       - name: 'Deploy to App Engine'
         run: |
-           gcloud builds submit "D:\Fontys-S6\Group\Q1-2022-APIGateway\Q1-2022-ApiGateway" --tag gcr.io/dinner-in-motion-project/gatewayapi --project dinner-in-motion-project
-           gcloud app deploy D:\Fontys-S6\Group\Q1-2022-APIGateway\Q1-2022-ApiGateway\bin\Release\net6.0\publish\app.yaml --image-url gcr.io/dinner-in-motion-project/gatewayapi --project dinner-in-motion-project
+           gcloud builds submit "\Q1-2022-ApiGateway" --tag gcr.io/dinner-in-motion-project/gatewayapi --project dinner-in-motion-project
+           gcloud app deploy \Q1-2022-ApiGateway\bin\Release\net6.0\publish\app.yaml --image-url gcr.io/dinner-in-motion-project/gatewayapi --project dinner-in-motion-project
            gcloud app browse --project=dinner-in-motion-project
         shell: bash
         
