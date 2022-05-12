@@ -7,11 +7,6 @@ on:
   pull_request:
 
 jobs:
- working-directory:
-    permissions:
-      contents: 'read'
-      id-token: 'write'
-
     steps:
     - id: 'auth'
       uses: 'google-github-actions/deploy-appengine@v0'
