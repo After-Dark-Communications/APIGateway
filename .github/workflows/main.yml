@@ -14,4 +14,4 @@ jobs:
         with:
           deliverables: app.yaml
           project_id: '${{ secrets.GCP_PROJECT}}'
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
