@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  deploy_to_GAE
+  deploy_to_GAE:
    
   steps:
     - id: 'auth'
