@@ -7,7 +7,12 @@ on:
   pull_request:
 
 jobs:
-    steps:
+  job_id:
+   permissions:
+    contents: 'read'
+    id_token: 'write'
+ 
+   steps:
     - id: 'auth'
       uses: 'google-github-actions/deploy-appengine@v0'
     
@@ -18,7 +23,6 @@ jobs:
       deliverables: 'app.yaml'
       project_id: ${{ secrets.GCP_PROJECT }}
       service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-      promote: false
       version: 'v1'
 
     # Example of using the output
