@@ -11,8 +11,8 @@ jobs:
    permissions:
     contents: 'read'
     id_token: 'write'
- 
-   steps:
+   
+  steps:
     - id: 'auth'
       uses: 'google-github-actions/deploy-appengine@v0'
     
