@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
       - uses: google-github-actions/deploy-appengine@v0
         with:
           deliverables: app.yaml
           project_id: '${{ secrets.GCP_PROJECT}}'
-          credentials: ${{ secrets.GCP_CREDENTIALS }}
+          
