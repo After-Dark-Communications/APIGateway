@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  job_id:
+  working-directory:
     permissions:
       contents: 'read'
       id-token: 'write'
