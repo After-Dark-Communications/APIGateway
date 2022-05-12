@@ -5,7 +5,7 @@ on:
     branches:
       - Dev
 jobs:
-  build:
+  deploy:
     name: GAE Deploy
     runs-on: ubuntu-latest
     steps:
