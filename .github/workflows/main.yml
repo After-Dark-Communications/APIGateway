@@ -36,6 +36,7 @@ jobs:
        deliverables: app.yaml
        project_id: ${{ secrets.GCP_PROJECT }}
        credentials: ${{ secrets.GCP_CREDENTIALS }}
+
     - name: dinner-in-motion.appspot.com
       rollout_strategy: managed
 
