@@ -7,10 +7,7 @@ on:
   pull_request:
 
 jobs:
-  job_id:
-   permissions:
-    contents: 'read'
-    id_token: 'write'
+  deploy_to_GAE
    
   steps:
     - id: 'auth'
