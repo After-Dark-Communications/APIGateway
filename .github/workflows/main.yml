@@ -15,15 +15,16 @@ jobs:
     steps:
     - id: 'auth'
       uses: 'google-github-actions/deploy-appengine@v0'
-
-    - name: 'Deploy to App Engine'
-       uses: 'google-github-actions/deploy-appengine@v0'
-       with:
-         deliverables: 'app.yaml'
-         project_id: ${{ secrets.GCP_PROJECT }}
-         service_account_key: ${{ secrets.GCP_CREDENTIALS }}
-         promote: false
-         version: 'v1'
+    
+    - id: deploy
+     name: 'Deploy to App Engine'
+     uses: 'google-github-actions/deploy-appengine@v0'
+     with:
+      deliverables: 'app.yaml'
+      project_id: ${{ secrets.GCP_PROJECT }}
+      service_account_key: ${{ secrets.GCP_CREDENTIALS }}
+      promote: false
+      version: 'v1'
 
     # Example of using the output
     - id: 'test'
