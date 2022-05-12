@@ -1,4 +1,3 @@
-
 name: Deploy to Google App Engine
 on:
   push:
@@ -11,12 +10,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: 'auth'
-        name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
-          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
-      - uses: google-github-actions/deploy-appengine@v0
+          credentials_json: ${{ secrets.gcp_credentials }}
+      - name: 'Deploy to App Engine'
+        uses: 'google-github-actions/deploy-appengine@v0'
         with:
-          deliverables: app.yaml
-          project_id: '${{ secrets.GCP_PROJECT}}'
-          
+          deliverables: 'app.yaml'
+          promote: false
+          version: 'v1'
+
