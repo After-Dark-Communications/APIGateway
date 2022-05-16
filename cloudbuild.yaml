@@ -1,7 +1,0 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'europe-west1-docker.pkg.dev/dinner-in-motion-project/docker-repo-dinner-in-motion/image:latest', '.' ]
-images:
-- 'europe-west1-docker.pkg.dev/dinner-in-motion-project/docker-repo-dinner-in-motion/image:latest'
-
- 
