@@ -14,7 +14,7 @@ jobs:
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
       - name: Build image
-        run: gcloud builds submit -t gcr.io/dinner-in-motion-project/gatewayapi Dockerfile
+        run: gcloud builds submit -t gcr.io/dinner-in-motion-project/gatewayapi ./Q1-2022-APIGateway/Q1-2022-ApiGatewayDockerfile
       - name: 'Deploy to App Engine'
         run: |
            gcloud app deploy app.yaml --image-url europe-west1-docker.pkg.dev/dinner-in-motion-project/docker-repo-dinner-in-motion/image --project dinner-in-motion-project
