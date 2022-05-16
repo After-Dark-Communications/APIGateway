@@ -49,7 +49,46 @@
         }
       ],
       "UpstreamPathTemplate": "/surveys/{id}/responses",
-      "UpstreamHttpMethod": [ "GET"],
+      "UpstreamHttpMethod": [ "GET" ],
+      "Swaggerkey": "surveys"
+    },
+    {
+      "DownstreamPathTemplate": "/api/responses",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "q1-survey-service.herokuapp.com",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/responses",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Swaggerkey": "surveys"
+    },
+    {
+      "DownstreamPathTemplate": "/api/responses/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "q1-survey-service.herokuapp.com",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/responses/{id}",
+      "UpstreamHttpMethod": [ "GET", "DELETE" ],
+      "Swaggerkey": "surveys"
+    },
+    {
+      "DownstreamPathTemplate": "/api/responses/{survey}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "q1-survey-service.herokuapp.com",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/responses/{survey}",
+      "UpstreamHttpMethod": [ "POST" ],
       "Swaggerkey": "surveys"
     }
   ],
