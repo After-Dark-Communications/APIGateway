@@ -15,7 +15,7 @@ jobs:
           credentials_json: ${{ secrets.gcp_credentials }}
       - name: 'Deploy to App Engine'
         run: |
-	   gcloud builds submit --region=europe-west1 --config cloudbuild.yaml
+           gcloud builds submit --region=europe-west1 --config cloudbuild.yaml
            gcloud app deploy app.yaml --image-url europe-west1-docker.pkg.dev/dinner-in-motion-project/docker-repo-dinner-in-motion/image --project dinner-in-motion-project
            gcloud app browse --project=dinner-in-motion-project
         shell: bash
