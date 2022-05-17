@@ -14,7 +14,8 @@ jobs:
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
       - name: Build image
-        run: gcloud builds submit --region=europe-west1 --config ./Q1-2022-ApiGateway/cloudbuild.yaml --no-source
+        working-directory: ./Q1-2022-ApiGateway
+        run: gcloud builds submit --region=europe-west1 --config cloudbuild.yaml
       - name: 'Deploy to App Engine'
         run: |
            gcloud app deploy app.yaml --image-url europe-west1-docker.pkg.dev/dinner-in-motion-project/docker-repo-dinner-in-motion/image --project dinner-in-motion-project
