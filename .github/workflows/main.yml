@@ -2,7 +2,7 @@ name: Deploy to Google App Engine
 on:
   push:
     branches:
-      - UpdateDeploymentSteps
+      - Dev
 jobs:
   deploy:
     name: GAE Deploy
