@@ -90,6 +90,42 @@
       "UpstreamPathTemplate": "/responses/{survey}",
       "UpstreamHttpMethod": [ "POST" ],
       "Swaggerkey": "surveys"
+    },
+    {
+      "DownstreamPathTemplate": "/email/send",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "emailservicegroup2.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/email/send",
+      "UpstreamHttpMethod": [ "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/email/preview",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "emailservicegroup2.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/email/preview",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/email/preview/{path}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "emailservicegroup2.azurewebsites.net",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/email/preview/{path}",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
 
