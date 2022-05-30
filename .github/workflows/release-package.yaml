@@ -3,7 +3,7 @@ name: Create and publish a Docker image package
 on:
   release:
     types: [created]
-    branches: [master]
+    branches: [master, dev, AddingExternalProject]
 
 env:
   REGISTRY: ghcr.io
