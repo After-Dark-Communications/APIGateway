@@ -126,6 +126,32 @@
       ],
       "UpstreamPathTemplate": "/email/preview/{path}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/OneTimeAccess/GetNew",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8361
+        }
+      ],
+      "UpstreamPathTemplate": "/OneTimeAccess/GetNew",
+      "UpstreamHttpMethod": [ "GET" ],
+      "Swaggerkey": "tokens"
+    },
+    {
+      "DownstreamPathTemplate": "/api/OneTimeAccess/Verify",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 8361
+        }
+      ],
+      "UpstreamPathTemplate": "/OneTimeAccess/Verify",
+      "UpstreamHttpMethod": [ "POST" ],
+      "Swaggerkey": "tokens"
     }
   ],
 
@@ -148,6 +174,16 @@
           "Name": "surveys API",
           "Version": "v1",
           "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "tokens",
+      "Config": [
+        {
+          "Name": "tokens API",
+          "Version": "v1",
+          "Url": "http://host.docker.internal:8361/api/docs/swagger.json"
         }
       ]
     }
