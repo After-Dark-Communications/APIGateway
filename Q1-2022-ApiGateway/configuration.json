@@ -183,7 +183,7 @@
         {
           "Name": "tokens API",
           "Version": "v1",
-          "Url": "http://host.docker.internal:8361/api/docs/swagger.json"
+          "Url": "http://host.docker.internal:8361/swagger/v1/swagger.json"
         }
       ]
     }
