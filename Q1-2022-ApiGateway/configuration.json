@@ -162,7 +162,7 @@
         {
           "Name": "surveys API",
           "Version": "v1",
-          "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
+          "Url": "https://q1-survey-service.herokuapp.com/api/docs/swagger.json"
         }
       ]
     },
