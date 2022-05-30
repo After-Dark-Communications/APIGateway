@@ -6,7 +6,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 80
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/values",
@@ -133,7 +133,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 80
+          "Port": 8361
         }
       ],
       "UpstreamPathTemplate": "/OneTimeAccess/GetNew",
@@ -173,7 +173,7 @@
         {
           "Name": "surveys API",
           "Version": "v1",
-          "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
+          "Url": "http://host.docker.internal:5002/swagger/v1/swagger.json"
         }
       ]
     },
