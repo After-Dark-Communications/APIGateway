@@ -146,7 +146,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "host.docker.internal",
-          "Port": 80
+          "Port": 8361
         }
       ],
       "UpstreamPathTemplate": "/OneTimeAccess/Verify",
@@ -157,23 +157,12 @@
 
   "SwaggerEndPoints": [
     {
-      "Key": "values",
-      "Config": [
-        {
-          "Name": "Test API",
-          "Version": "v1",
-          "Url": "http://host.docker.internal:5001/swagger/v1/swagger.json"
-
-        }
-      ]
-    },
-    {
       "Key": "surveys",
       "Config": [
         {
           "Name": "surveys API",
           "Version": "v1",
-          "Url": "http://host.docker.internal:5002/swagger/v1/swagger.json"
+          "Url": "http://host.docker.internal:5002/api/docs/swagger.json"
         }
       ]
     },
